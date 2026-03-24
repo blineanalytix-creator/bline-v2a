@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B_LineGraphix – Grafikdesign & visuelle Kommunikation</title>
+    <meta name="description" content="Markenauftritte, die Vertrauen schaffen – für Menschen, die mehr wollen als nur ein Logo. Grafikdesign von Jessica Batur.">
+    <style>
+        @font-face { font-family: 'Inter'; font-weight: 300; font-style: normal; font-display: swap; src: url('assets/fonts/inter-300.ttf') format('truetype'); }
+        @font-face { font-family: 'Inter'; font-weight: 400; font-style: normal; font-display: swap; src: url('assets/fonts/inter-400.ttf') format('truetype'); }
+        @font-face { font-family: 'Inter'; font-weight: 500; font-style: normal; font-display: swap; src: url('assets/fonts/inter-500.ttf') format('truetype'); }
+        @font-face { font-family: 'Inter'; font-weight: 600; font-style: normal; font-display: swap; src: url('assets/fonts/inter-600.ttf') format('truetype'); }
+        @font-face { font-family: 'Inter'; font-weight: 700; font-style: normal; font-display: swap; src: url('assets/fonts/inter-700.ttf') format('truetype'); }
+    </style>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+</head>
+<body>
+
+    <!-- Particle Background -->
+    <canvas id="mobile-particles" aria-hidden="true"></canvas>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="#hero">
+                <img src="assets/images/logo.png" alt="B_LineGraphix" class="header-logo-img">
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menü">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <nav class="mobile-menu-nav">
+            <a href="#hero" class="mobile-menu-link">Start</a>
+            <a href="#portfolio" class="mobile-menu-link">Portfolio</a>
+            <a href="#about" class="mobile-menu-link">Über mich</a>
+            <a href="#kontakt" class="mobile-menu-link">Kontakt</a>
+        </nav>
+    </div>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <img src="assets/images/logo.png" alt="B_LineGraphix" class="hero-logo">
+                <p class="hero-tagline">Markenauftritte, die Vertrauen schaffen –<br>für Menschen, die mehr wollen als nur ein Logo.</p>
+                <a href="#philosophy" class="hero-scroll">
+                    <span>Entdecken</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- Philosophy -->
+        <section class="section" id="philosophy">
+            <div class="site-container reveal">
+                <span class="section-label">Ansatz</span>
+                <h2 class="philosophy-title">Jedes Projekt verdient einen starken Auftritt.</h2>
+                <p class="philosophy-desc">Ob Markenauftritt, Präsentation oder kreatives Projekt – durchdachtes Design schafft Klarheit, weckt Interesse und bleibt im Kopf.</p>
+                <p class="philosophy-sub">Für alle, die verstanden werden wollen.</p>
+            </div>
+        </section>
+
+        <!-- Portfolio -->
+        <section class="section section-dark" id="portfolio">
+            <div class="site-container">
+                <div class="reveal">
+                    <span class="section-label">Ausgewählte Arbeiten</span>
+                    <h2>Ergebnisse, die überzeugen.</h2>
+                </div>
+                <div class="portfolio-grid" id="portfolio-grid">
+                    <!-- Dynamisch per JS -->
+                </div>
+                <div class="portfolio-cta reveal">
+                    <p>Ihr Projekt könnte hier stehen.</p>
+                    <a href="#kontakt" class="btn-primary">Projekt starten</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="section" id="about">
+            <div class="site-container">
+                <div class="reveal">
+                    <img src="assets/images/logo.png" alt="B_LineGraphix" class="about-logo">
+                </div>
+                <div class="about-text reveal">
+                    <span class="section-label">Über mich</span>
+                    <h2>Design mit Haltung.</h2>
+                    <div class="about-desc">
+                        <p>Ich bin Jessica Batur – Grafikdesignerin mit Fokus auf Markenauftritte, die wirken. Seit über 10 Jahren unterstütze ich Unternehmen dabei, visuell das zu zeigen, was sie ausmacht.</p>
+                        <p>Mein Ansatz: Weniger Dekoration, mehr Substanz. Jedes Projekt bekommt meine volle Aufmerksamkeit – denn gutes Design braucht Zeit und Tiefe, keine Massenabfertigung.</p>
+                    </div>
+                    <div class="about-services">
+                        <span class="service-tag">Corporate Design</span>
+                        <span class="service-tag">Markenentwicklung</span>
+                        <span class="service-tag">Logo Design</span>
+                        <span class="service-tag">Visuelle Identität</span>
+                        <span class="service-tag">Print & Digital</span>
+                    </div>
+                    <div class="about-stats">
+                        <div class="reveal"><span class="stat-number">10+</span><span class="stat-label">Jahre Erfahrung</span></div>
+                        <div class="reveal reveal-d1"><span class="stat-number">500+</span><span class="stat-label">Projekte</span></div>
+                        <div class="reveal reveal-d2"><span class="stat-number">100%</span><span class="stat-label">Fokus</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roadmap -->
+        <section class="section section-dark" id="roadmap">
+            <div class="site-container">
+                <div class="reveal">
+                    <span class="section-label">So arbeiten wir</span>
+                    <h2>Der Weg zu Ihrem Auftritt</h2>
+                </div>
+                <div class="roadmap-list" id="roadmap-list">
+                    <!-- Dynamisch per JS -->
+                </div>
+                <div class="roadmap-cta reveal">
+                    <p>100% Fokus. Ein Projekt. Während der Zusammenarbeit sind Sie mein einziger Kunde.</p>
+                    <a href="#kontakt" class="btn-primary">Kostenloses Erstgespräch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="section" id="kontakt">
+            <div class="site-container">
+                <div class="reveal">
+                    <span class="section-label">Nächster Schritt</span>
+                    <h2 class="contact-title">Bereit für einen Auftritt, der wirkt?</h2>
+                    <p class="contact-desc">Kostenloses Erstgespräch – unverbindlich, aber nicht unverbindlich. Wir klären, ob und wie ich helfen kann.</p>
+                </div>
+
+                <form class="contact-form reveal" id="contact-form" novalidate>
+                    <div class="form-group">
+                        <label for="contact-name">Name</label>
+                        <input type="text" id="contact-name" name="name" placeholder="Vor- und Nachname" required autocomplete="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">E-Mail</label>
+                        <input type="email" id="contact-email" name="email" placeholder="email@beispiel.de" required autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Nachricht</label>
+                        <textarea id="contact-message" name="message" rows="4" placeholder="Projektidee oder Anfrage beschreiben..."></textarea>
+                    </div>
+                    <!-- Honeypot -->
+                    <div style="position:absolute;left:-9999px;" aria-hidden="true">
+                        <input type="text" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+                    <button type="submit" class="btn-primary btn-submit" id="contact-submit">Gespräch vereinbaren</button>
+                    <div class="form-status" id="form-status" role="alert"></div>
+                </form>
+
+                <div class="contact-info reveal">
+                    <div>
+                        <span class="contact-info-label">E-Mail</span>
+                        <a href="mailto:info@blinegraphix.de" class="contact-info-value">info@blinegraphix.de</a>
+                    </div>
+                    <div>
+                        <span class="contact-info-label">Telefon</span>
+                        <a href="tel:+4917096698531" class="contact-info-value">0170 9669853</a>
+                    </div>
+                    <div>
+                        <span class="contact-info-label">Adresse</span>
+                        <span class="contact-info-value">Dorfstraße 30a, 85445 Oberding</span>
+                    </div>
+                    <div>
+                        <span class="contact-info-label">Social</span>
+                        <a href="https://www.linkedin.com/in/jessica-batur-0040873aa/" target="_blank" rel="noopener" class="contact-info-value">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="site-container">
+            <a href="#hero"><img src="assets/images/logo.png" alt="B_LineGraphix" class="footer-logo"></a>
+            <p class="footer-tagline">Markenauftritte mit Substanz.</p>
+            <nav class="footer-nav">
+                <a href="#hero">Start</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#about">Über mich</a>
+                <a href="#kontakt">Kontakt</a>
+            </nav>
+            <div class="footer-bottom">
+                <span>&copy; 2026 B_LineGraphix. Alle Rechte vorbehalten.</span>
+                <nav class="footer-legal">
+                    <a href="pages/impressum.html">Impressum</a>
+                    <a href="pages/datenschutz.html">Datenschutz</a>
+                    <a href="pages/ki-transparenz.html">KI-Transparenz</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookie-banner">
+        <p>Diese Website verwendet nur technisch notwendige Cookies. <a href="pages/datenschutz.html">Mehr erfahren</a></p>
+        <button class="btn-cookie" id="cookie-accept">Verstanden</button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/content.js"></script>
+    <script src="js/mobile.js"></script>
+</body>
+</html>

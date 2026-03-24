@@ -14,6 +14,14 @@
         @font-face { font-family: 'Inter'; font-weight: 700; font-style: normal; font-display: swap; src: url('assets/fonts/inter-700.ttf') format('truetype'); }
     </style>
 
+    <script>
+    (function(){
+        if (/[?&]desktop=1/.test(location.search)) return;
+        var m = (('ontouchstart' in window || navigator.maxTouchPoints > 0) && window.innerWidth <= 768)
+            || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        if (m) location.replace('index.mobile.html' + location.hash);
+    })();
+    </script>
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/mobile.css">
