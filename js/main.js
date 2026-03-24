@@ -393,7 +393,7 @@
 
         config: {
             nodeCount: 350,
-            mobileNodeCount: 180,
+            mobileNodeCount: 280,
             colors: { node: {r:255,g:255,b:255}, conn: {r:255,g:255,b:255}, flash: {r:255,g:255,b:255} }
         },
 
@@ -483,15 +483,15 @@
 
         buildFormations() {
             const m = this.isMobile;
-            const ps = { alpha: 0.55, flashRate: 0.016, connDist: m ? 50 : 75, nodeR: 2.0, lineW: 0.6 };
+            const ps = { alpha: 0.55, flashRate: 0.016, connDist: m ? 65 : 75, nodeR: 2.0, lineW: 0.6 };
             return [
                 /* 0 */ { gen: 'genOrigin',      alpha: 0.0, flashRate: 0, connDist: 0, nodeR: 0.8, lineW: 0.2 },
-                /* 1 */ { gen: 'genIcosahedron',  alpha: 0.50, flashRate: 0.016, connDist: m ? 55 : 80, nodeR: 2.0, lineW: 0.55 },
+                /* 1 */ { gen: 'genIcosahedron',  alpha: 0.50, flashRate: 0.016, connDist: m ? 70 : 80, nodeR: 2.0, lineW: 0.55 },
                 /* 2 */ { gen: 'genCitech',       ...ps },
                 /* 3 */ { gen: 'genWegweiser',    ...ps },
                 /* 4 */ { gen: 'genJantzen',      ...ps },
                 /* 5 */ { gen: 'genSun',          ...ps },
-                /* 6 */ { gen: 'genTextBLINE',    alpha: 0.40, flashRate: 0.010, connDist: m ? 45 : 58, nodeR: 1.6, lineW: 0.45 },
+                /* 6 */ { gen: 'genTextBLINE',    alpha: 0.40, flashRate: 0.010, connDist: m ? 55 : 58, nodeR: 1.6, lineW: 0.45 },
                 /* 7-10: Roadmap Metamorphose (Kokon → Schmetterling) */
                 /* 7 */  { gen: 'genCocoon',       alpha: 0.35, flashRate: 0.010, connDist: m ? 40 : 55, nodeR: 1.6, lineW: 0.45 },
                 /* 8 */  { gen: 'genCocoonOpen',   alpha: 0.38, flashRate: 0.012, connDist: m ? 48 : 68, nodeR: 1.8, lineW: 0.50 },

@@ -246,9 +246,9 @@
         height: 100dvh;
     }
 
-    /* --- Particle Canvas (reduce opacity slightly on mobile) --- */
+    /* --- Particle Canvas --- */
     #particle-canvas {
-        opacity: 0.8;
+        opacity: 1;
     }
 
     /* --- Legal Pages --- */
