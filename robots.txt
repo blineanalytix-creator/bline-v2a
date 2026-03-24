@@ -3,4 +3,4 @@ Allow: /
 Disallow: /contact-handler.php
 Disallow: /index.mobile.html
 
-Sitemap: https://www.b-line-graphix.de/sitemap.xml
+Sitemap: https://b-line-graphix.de/sitemap.xml
