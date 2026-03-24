@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KI-Transparenz – B_LineGraphix</title>
+    <meta name="robots" content="noindex">
+    <style>
+        @font-face { font-family: 'Inter'; font-weight: 400; font-style: normal; font-display: swap; src: url('../assets/fonts/inter-400.ttf') format('truetype'); }
+        @font-face { font-family: 'Inter'; font-weight: 500; font-style: normal; font-display: swap; src: url('../assets/fonts/inter-500.ttf') format('truetype'); }
+        @font-face { font-family: 'Inter'; font-weight: 600; font-style: normal; font-display: swap; src: url('../assets/fonts/inter-600.ttf') format('truetype'); }
+        @font-face { font-family: 'Inter'; font-weight: 700; font-style: normal; font-display: swap; src: url('../assets/fonts/inter-700.ttf') format('truetype'); }
+    </style>
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/mobile.css">
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+</head>
+<body>
+
+    <div class="legal-bg" aria-hidden="true">
+        <canvas id="legal-network"></canvas>
+    </div>
+
+    <header class="header dark scrolled">
+        <div class="header-inner">
+            <a href="../index.html" class="header-logo">
+                <img src="../assets/images/logo.png" alt="B_LineGraphix" class="header-logo-img" style="filter: invert(1);">
+            </a>
+            <nav class="nav-desktop">
+                <div class="nav-pill">
+                    <a href="../index.html" class="nav-link">Zurück zur Startseite</a>
+                </div>
+            </nav>
+            <a href="../index.html" class="mobile-toggle" aria-label="Zurück zur Startseite">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="legal-page-content">
+            <h1>KI-Transparenz</h1>
+            <div class="legal-subtitle">Offenlegung zum Einsatz von Künstlicher Intelligenz</div>
+
+            <h2>Unser Bekenntnis zur Transparenz</h2>
+            <p>Bei B_LineGraphix setzen wir auf Ehrlichkeit und Transparenz. Deshalb legen wir offen, in welchem Umfang Künstliche Intelligenz (KI) bei der Erstellung dieser Website zum Einsatz kam.</p>
+
+            <h2>KI-Einsatz bei der Websiteentwicklung</h2>
+            <p>Diese Website wurde mit Unterstützung von KI-Tools entwickelt. Konkret wurde <strong>Claude (Anthropic)</strong> als KI-Assistent für folgende Bereiche eingesetzt:</p>
+            <ul>
+                <li>Programmierung und technische Umsetzung (HTML, CSS, JavaScript)</li>
+                <li>Entwicklung des interaktiven Partikel-Animations-Systems</li>
+                <li>Strukturierung und Optimierung des Codes</li>
+                <li>Responsive Design und Performance-Optimierung</li>
+            </ul>
+
+            <h2>Was NICHT durch KI erstellt wurde</h2>
+            <ul>
+                <li>Alle Designkonzepte und kreative Richtung – stammen von Jessica Batur</li>
+                <li>Alle Kundenlogos und Designarbeiten im Portfolio</li>
+                <li>Texte und Inhalte wurden redaktionell geprüft und angepasst</li>
+                <li>Die strategische Ausrichtung und das Branding</li>
+            </ul>
+
+            <h2>Warum wir KI nutzen</h2>
+            <p>KI-Tools ermöglichen es uns, hochwertige technische Lösungen effizient umzusetzen und gleichzeitig mehr Zeit in das zu investieren, was wirklich zählt: kreative Gestaltung und individuelle Betreuung unserer Kunden. Die Technologie ist ein Werkzeug – die Kreativität kommt vom Menschen.</p>
+
+            <h2>Kundenarbeit</h2>
+            <p>In unserer Kundenarbeit (Corporate Design, Logo-Design, Printmedien) setzen wir KI-Tools nur dort ein, wo sie den kreativen Prozess sinnvoll unterstützen – niemals als Ersatz für eigenständige Gestaltung. Jedes Projekt wird individuell und mit voller kreativer Aufmerksamkeit entwickelt. Bei Fragen zum KI-Einsatz in Ihrem spezifischen Projekt sprechen Sie uns gerne an.</p>
+
+            <p style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.75rem; color: var(--text-white-40);">
+                Stand: März 2026 · Diese Seite wird bei Bedarf aktualisiert.
+            </p>
+        </div>
+    </main>
+
+    <footer class="footer" style="position: relative; z-index: 1;">
+        <div class="site-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html"><img src="../assets/images/logo.png" alt="B_LineGraphix" class="footer-logo"></a>
+                    <p class="footer-tagline">Markenauftritte mit Substanz.</p>
+                </div>
+                <div class="footer-nav-col">
+                    <h4 class="footer-col-title">Navigation</h4>
+                    <nav class="footer-links">
+                        <a href="../index.html">Start</a>
+                        <a href="../index.html#portfolio">Portfolio</a>
+                        <a href="../index.html#about">Über mich</a>
+                        <a href="../index.html#kontakt">Kontakt</a>
+                    </nav>
+                </div>
+                <div class="footer-contact-col">
+                    <h4 class="footer-col-title">Kontakt</h4>
+                    <div class="footer-links">
+                        <a href="mailto:info@blinegraphix.de">info@blinegraphix.de</a>
+                        <a href="tel:+4917096698531">0170 9669853</a>
+                        <span>Dorfstraße 30a, 85445 Oberding</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 B_LineGraphix. Alle Rechte vorbehalten.</span>
+                <nav class="footer-bottom-nav">
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="ki-transparenz.html">KI-Transparenz</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/legal-network.js"></script>
+</body>
+</html>
