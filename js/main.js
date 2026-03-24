@@ -393,7 +393,7 @@
 
         config: {
             nodeCount: 350,
-            mobileNodeCount: 230,
+            mobileNodeCount: 150,
             colors: { node: {r:255,g:255,b:255}, conn: {r:255,g:255,b:255}, flash: {r:255,g:255,b:255} }
         },
 

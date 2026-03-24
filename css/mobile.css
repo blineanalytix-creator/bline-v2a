@@ -58,7 +58,7 @@
         background: rgba(10,10,15,0.85);
     }
 
-    /* --- Hero (fullscreen on mobile with iOS-safe units) --- */
+    /* --- Hero --- */
     .hero {
         min-height: 100vh;
         min-height: 100dvh;
@@ -79,16 +79,14 @@
         height: clamp(5rem, 15vw, 8rem);
     }
 
-    /* --- Philosophy (fullscreen on mobile) --- */
+    /* --- Philosophy (content-sized, not forced fullscreen) --- */
     .philosophy {
-        min-height: 100vh;
-        min-height: 100dvh;
-        padding: 0;
+        min-height: auto;
+        padding: 5rem 0 4rem;
     }
 
     .philosophy-bg-image {
-        width: 100%;
-        opacity: 0.25;
+        display: none;
     }
 
     .philosophy-grid {
@@ -99,10 +97,6 @@
         display: none;
     }
 
-    .philosophy-text {
-        padding: 0 1rem;
-    }
-
     /* --- Portfolio: Desktop ausblenden, Mobile Card Grid zeigen --- */
     .portfolio {
         display: none !important;
@@ -110,7 +104,7 @@
 
     .portfolio-mobile {
         display: block !important;
-        padding: clamp(3rem, 6vh, 5rem) 0;
+        padding: 3rem 0;
     }
 
     .portfolio-mobile-card-img {
@@ -123,15 +117,10 @@
         max-height: 90%;
     }
 
-    /* --- Testimonials --- */
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* --- About --- */
+    /* --- About (content-sized) --- */
     .about {
         min-height: auto;
-        padding: clamp(4rem, 8vh, 6rem) 0;
+        padding: 4rem 0;
     }
 
     .about-grid {
@@ -141,11 +130,11 @@
 
     .about-portrait {
         aspect-ratio: auto;
-        height: 200px;
+        height: 150px;
     }
 
     .about-logo-img {
-        width: 120px;
+        width: 100px;
     }
 
     .about-services {
@@ -161,10 +150,10 @@
         display: none;
     }
 
-    /* --- Contact (fullscreen on mobile) --- */
+    /* --- Contact (content-sized) --- */
     .contact {
-        min-height: 100vh;
-        min-height: 100dvh;
+        min-height: auto;
+        padding: 4rem 0;
     }
 
     .contact-grid {
@@ -173,24 +162,19 @@
 
     .contact-info-col {
         padding-left: 0;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 2rem;
-    }
-
-    .contact-info-group {
-        flex: 1;
-        min-width: 180px;
+        flex-direction: column;
+        gap: 1.5rem;
     }
 
     .contact-bg-text {
-        font-size: clamp(8rem, 25vw, 12rem);
+        display: none;
     }
 
     /* --- Footer --- */
     .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem 1.5rem;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
     }
 
     .footer-brand {
@@ -219,12 +203,12 @@
     /* --- Cookie Banner --- */
     .cookie-banner {
         bottom: 1rem;
-        left: 1.5rem;
-        right: 1.5rem;
+        left: 1rem;
+        right: 1rem;
         max-width: none;
     }
 
-    /* --- Modals (iOS-safe) --- */
+    /* --- Modals --- */
     .modal-content {
         max-height: 100vh;
         max-height: 100dvh;
@@ -234,21 +218,28 @@
         padding: 3rem 1.5rem 1.5rem;
     }
 
-    /* --- Mobile Menu (iOS-safe) --- */
+    /* --- Mobile Menu --- */
     .mobile-menu {
         height: 100vh;
         height: 100dvh;
     }
 
-    /* --- Intro Overlay (iOS-safe) --- */
+    /* --- Intro Overlay --- */
     .intro-overlay {
         height: 100vh;
         height: 100dvh;
     }
 
-    /* --- Particle Canvas --- */
+    /* --- Particle Canvas (dezent auf Mobile) --- */
     #particle-canvas {
-        opacity: 1;
+        opacity: 0.5;
+    }
+
+    /* --- Section Gradients: nicht nötig auf Mobile --- */
+    .section-gradient-top,
+    .section-gradient-bottom,
+    .philosophy-gradient-bottom {
+        display: none;
     }
 
     /* --- Legal Pages --- */
