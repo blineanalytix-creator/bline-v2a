@@ -1,14 +1,20 @@
 # B_LineGraphix - Apache Configuration
 # =====================================
 
-# Force HTTPS
 RewriteEngine On
+
+# Force HTTPS
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Remove www
-RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+# Force www (canonical domain: www.b-line-graphix.de)
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Clean URLs for legal pages
+RewriteRule ^impressum$ /pages/impressum.html [L]
+RewriteRule ^datenschutz$ /pages/datenschutz.html [L]
+RewriteRule ^ki-transparenz$ /pages/ki-transparenz.html [L]
 
 # Security Headers
 <IfModule mod_headers.c>
@@ -16,6 +22,8 @@ RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
     Header set X-Frame-Options "SAMEORIGIN"
     Header set X-XSS-Protection "1; mode=block"
     Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'self'"
 </IfModule>
 
 # Caching for static assets
@@ -34,6 +42,11 @@ RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
 </IfModule>
+
+# Block access to sensitive files
+<FilesMatch "\.(env|git|claude)">
+    Require all denied
+</FilesMatch>
 
 # Custom 404
 ErrorDocument 404 /index.html
