@@ -58,26 +58,28 @@
         background: rgba(10,10,15,0.85);
     }
 
-    /* --- Hero --- */
+    /* --- Hero (fullscreen on mobile with iOS-safe units) --- */
     .hero {
-        min-height: auto;
-        padding-top: 120px;
-        padding-bottom: 4rem;
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
     .hero-tagline {
         padding: 0 1rem;
     }
 
-    /* --- Philosophy --- */
+    /* --- Philosophy (fullscreen on mobile) --- */
     .philosophy {
-        min-height: auto;
-        padding: 6rem 0 4rem;
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 0;
     }
 
     .philosophy-bg-image {
         width: 100%;
-        opacity: 0.3;
+        opacity: 0.25;
     }
 
     .philosophy-grid {
@@ -86,6 +88,10 @@
 
     .philosophy-spacer {
         display: none;
+    }
+
+    .philosophy-text {
+        padding: 0 1rem;
     }
 
     /* --- Portfolio: Desktop ausblenden, Mobile Card Grid zeigen --- */
@@ -103,6 +109,11 @@
     }
 
     /* --- About --- */
+    .about {
+        min-height: auto;
+        padding: clamp(4rem, 8vh, 6rem) 0;
+    }
+
     .about-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -130,9 +141,10 @@
         display: none;
     }
 
-    /* --- Contact --- */
+    /* --- Contact (fullscreen on mobile) --- */
     .contact {
-        min-height: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
     }
 
     .contact-grid {
@@ -192,19 +204,36 @@
         max-width: none;
     }
 
-    /* --- Modals --- */
+    /* --- Modals (iOS-safe) --- */
     .modal-content {
         max-height: 100vh;
+        max-height: 100dvh;
         height: 100vh;
+        height: 100dvh;
         border-radius: 0;
         padding: 3rem 1.5rem 1.5rem;
     }
 
+    /* --- Mobile Menu (iOS-safe) --- */
+    .mobile-menu {
+        height: 100vh;
+        height: 100dvh;
+    }
+
+    /* --- Intro Overlay (iOS-safe) --- */
+    .intro-overlay {
+        height: 100vh;
+        height: 100dvh;
+    }
+
+    /* --- Particle Canvas (reduce opacity slightly on mobile) --- */
+    #particle-canvas {
+        opacity: 0.8;
+    }
+
     /* --- Legal Pages --- */
-    .page-hero {
-        min-height: auto;
-        padding-top: 100px;
-        padding-bottom: 2rem;
+    .legal-page-content {
+        margin-left: 0;
     }
 }
 
@@ -212,11 +241,6 @@
    SMALL PHONES (max-width: 480px)
    ============================================ */
 @media (max-width: 480px) {
-    .hero {
-        padding-top: 100px;
-        padding-bottom: 3rem;
-    }
-
     .about-stats {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -241,11 +265,11 @@
     }
 
     .header-logo-img {
-        height: 24px;
+        height: 32px;
     }
 
     .header.scrolled .header-logo-img {
-        height: 22px;
+        height: 28px;
     }
 }
 
@@ -263,5 +287,13 @@
     .hero-cta {
         padding: 0.75rem 1.5rem;
         font-size: 0.75rem;
+    }
+
+    .header-logo-img {
+        height: 28px;
+    }
+
+    .header.scrolled .header-logo-img {
+        height: 24px;
     }
 }
