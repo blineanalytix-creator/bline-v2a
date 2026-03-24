@@ -159,9 +159,29 @@ h3 { font-size: 1.125rem; }
     position: relative;
     z-index: 1;
     padding: 0 1.25rem;
+    overflow: hidden;
 }
 
-.hero-content { max-width: 400px; }
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 25%;
+}
+
+.hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 40%, rgba(15,15,15,0.8) 85%, var(--bg-dark-1) 100%);
+}
+
+.hero-content { max-width: 400px; position: relative; z-index: 1; }
 
 .hero-logo {
     height: 5rem;
@@ -250,17 +270,17 @@ h3 { font-size: 1.125rem; }
 }
 
 .portfolio-card-img {
-    height: 180px;
+    height: 220px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem;
+    padding: 2rem;
     background: rgba(0,0,0,0.3);
 }
 
 .portfolio-card-img img {
     max-height: 100%;
-    max-width: 80%;
+    max-width: 100%;
     object-fit: contain;
 }
 

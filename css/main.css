@@ -1852,7 +1852,7 @@ a.contact-info-value:hover {
         margin-left: 0;
     }
     .legal-bg {
-        opacity: 0.4;
+        display: none;
     }
     .nav-desktop {
         display: none;
