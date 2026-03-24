@@ -244,9 +244,9 @@
     const init = () => {
         Particles.init();
         Nav.init();
-        Reveal.init();
         Portfolio.init();
         Roadmap.init();
+        Reveal.init(); /* Nach Portfolio/Roadmap, damit dynamische Elemente erfasst werden */
         Contact.init();
         Cookie.init();
     };
