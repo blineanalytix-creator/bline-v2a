@@ -6,22 +6,4 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-  <url>
-    <loc>https://b-line-graphix.de/impressum</loc>
-    <lastmod>2026-03-24</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://b-line-graphix.de/datenschutz</loc>
-    <lastmod>2026-03-24</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://b-line-graphix.de/ki-transparenz</loc>
-    <lastmod>2026-03-24</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
 </urlset>

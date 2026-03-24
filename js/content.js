@@ -128,7 +128,7 @@ const CONTENT = {
     info: {
       email: 'info@blinegraphix.de',
       phone: '0170 9669853',
-      phoneLink: '+4917096698531',
+      phoneLink: '+491709669853',
       address: { street: 'Dorfstraße 30a', city: '85445 Oberding' },
     },
     social: [

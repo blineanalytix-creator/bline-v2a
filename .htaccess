@@ -43,10 +43,12 @@ RewriteRule ^ki-transparenz$ /pages/ki-transparenz.html [L]
     AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
 </IfModule>
 
-# Block access to sensitive files
-<FilesMatch "\.(env|git|claude)">
+# Block access to sensitive files and directories
+<FilesMatch "\.(env)$">
     Require all denied
 </FilesMatch>
+RedirectMatch 404 /\.git
+RedirectMatch 404 /\.claude
 
 # Custom 404
 ErrorDocument 404 /index.html

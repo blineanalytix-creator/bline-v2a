@@ -19,12 +19,10 @@ $config = [
     'from_email' => 'noreply@blinegraphix.de',
 
     'allowed_origins' => [
-        'https://blinegraphix.de',
-        'https://www.blinegraphix.de',
-        'http://blinegraphix.de',
-        'http://www.blinegraphix.de',
-        'http://localhost:5173',
-        'http://localhost:5174',
+        'https://b-line-graphix.de',
+        'https://www.b-line-graphix.de',
+        'http://b-line-graphix.de',
+        'http://www.b-line-graphix.de',
     ],
 
     'max_submissions_per_hour' => 3,
