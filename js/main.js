@@ -752,9 +752,11 @@
                 /* 1: Philosophy (Ikosaeder) */
                 anchors.push(phil.offsetTop + phil.offsetHeight * 0.36);
 
-                /* 2-5: Portfolio Projekte (4 Sub-Anchors innerhalb der Section) */
-                if (port) {
-                    const pt = port.offsetTop, ph = port.offsetHeight;
+                /* 2-5: Portfolio Projekte (4 Sub-Anchors) */
+                /* Mobile: #portfolio is display:none, use #portfolio-mobile instead */
+                const portEl = (port && port.offsetHeight > 0) ? port : document.querySelector('#portfolio-mobile');
+                if (portEl) {
+                    const pt = portEl.offsetTop, ph = portEl.offsetHeight;
                     const perProj = ph / 4;
                     for (let i = 0; i < 4; i++) {
                         anchors.push(pt + perProj * i + perProj * 0.4);

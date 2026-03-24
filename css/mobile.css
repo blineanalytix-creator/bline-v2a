@@ -66,8 +66,17 @@
         padding-bottom: 0;
     }
 
+    .hero-bg-img {
+        object-position: 50% 30%;
+    }
+
     .hero-tagline {
         padding: 0 1rem;
+        font-size: 1rem;
+    }
+
+    .hero-logo {
+        height: clamp(5rem, 15vw, 8rem);
     }
 
     /* --- Philosophy (fullscreen on mobile) --- */
@@ -101,6 +110,17 @@
 
     .portfolio-mobile {
         display: block !important;
+        padding: clamp(3rem, 6vh, 5rem) 0;
+    }
+
+    .portfolio-mobile-card-img {
+        height: 140px;
+        background: rgba(255,255,255,0.03);
+    }
+
+    .portfolio-mobile-card-img img {
+        max-width: 60%;
+        max-height: 90%;
     }
 
     /* --- Testimonials --- */
