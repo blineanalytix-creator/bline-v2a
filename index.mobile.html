@@ -18,6 +18,19 @@
 </head>
 <body>
 
+    <!-- Intro Overlay -->
+    <div class="intro-overlay" id="intro-overlay" aria-hidden="true">
+        <div class="intro-logo-container">
+            <div class="intro-symbol" id="intro-sym">
+                <img src="assets/images/logo.png" alt="B_LineGraphix">
+            </div>
+            <div class="intro-brand" id="intro-brand">
+                <span class="intro-brand-sub">Grafikdesign mit Substanz</span>
+            </div>
+        </div>
+        <button class="intro-skip" id="intro-skip">Überspringen</button>
+    </div>
+
     <!-- Particle Background -->
     <canvas id="mobile-particles" aria-hidden="true"></canvas>
 
@@ -46,17 +59,20 @@
     <main>
         <!-- Hero -->
         <section class="hero" id="hero">
-            <div class="hero-bg" aria-hidden="true">
+            <div class="hero-bg" id="hero-bg" aria-hidden="true">
                 <img src="assets/images/hero-background.jpg" alt="">
                 <div class="hero-bg-overlay"></div>
             </div>
-            <div class="hero-content">
+            <div class="hero-dive-overlay" id="hero-dive-overlay"></div>
+            <div class="hero-content" id="hero-content">
                 <img src="assets/images/logo.png" alt="B_LineGraphix" class="hero-logo">
                 <p class="hero-tagline">Markenauftritte, die Vertrauen schaffen –<br>für Menschen, die mehr wollen als nur ein Logo.</p>
-                <a href="#philosophy" class="hero-scroll">
-                    <span>Entdecken</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
-                </a>
+                <div class="hero-cta-wrap" id="hero-cta-wrap">
+                    <button class="hero-cta" id="hero-cta">
+                        <span>Eintauchen</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+                    </button>
+                </div>
             </div>
         </section>
 

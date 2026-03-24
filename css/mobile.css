@@ -65,6 +65,135 @@ h3 { font-size: 1.125rem; }
 .btn-primary:active { background: var(--color-white); }
 
 /* ============================================
+   Intro Overlay
+   ============================================ */
+.intro-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: var(--bg-dark-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: opacity 0.6s ease;
+}
+
+.intro-overlay.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.intro-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.intro-symbol {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.intro-symbol.visible { opacity: 1; transform: scale(1); }
+.intro-symbol.morph-out { opacity: 0; transform: scale(1.3); transition: opacity 0.4s ease, transform 0.4s ease; }
+
+.intro-symbol img {
+    height: clamp(60px, 12vw, 120px);
+    width: auto;
+    filter: invert(1);
+}
+
+.intro-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.intro-brand.visible { opacity: 1; transform: translateY(0); }
+.intro-brand.fade-out { opacity: 0; transform: translateY(-10px); }
+
+.intro-brand-sub {
+    font-size: 0.8rem;
+    color: var(--text-white-40);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.intro-skip {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 0.8rem;
+    color: var(--text-white-40);
+    letter-spacing: 0.08em;
+    padding: 0.5rem 1rem;
+}
+
+/* ============================================
+   Hero Dive
+   ============================================ */
+.hero-dive-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--bg-dark-1);
+    z-index: 2;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.hero-dive-overlay.active { opacity: 1; }
+
+.hero-cta-wrap {
+    margin-top: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroFadeUp 0.8s ease-out 0.7s forwards;
+}
+
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.75rem;
+    background: var(--color-anthracite);
+    color: var(--color-white);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: var(--radius-full);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroFadeUp 0.8s ease-out 0.7s forwards;
+}
+
+.hero-cta:disabled { cursor: default; }
+
+.hero-cta svg { animation: bounceDown 2s ease-in-out infinite; }
+
+.hero-logo {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroFadeUp 0.8s ease-out 0.3s forwards;
+}
+
+.hero-tagline {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroFadeUp 0.8s ease-out 0.5s forwards;
+}
+
+@keyframes heroFadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
    Particle Canvas
    ============================================ */
 #mobile-particles {

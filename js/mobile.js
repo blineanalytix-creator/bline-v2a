@@ -8,6 +8,121 @@
     const C = typeof CONTENT !== 'undefined' ? CONTENT : {};
 
     /* ========================================
+       0a. INTRO ANIMATION (1:1 from desktop)
+       ======================================== */
+    const Intro = {
+        timers: [],
+
+        init() {
+            const ov = document.getElementById('intro-overlay');
+            if (!ov) return;
+
+            if (sessionStorage.getItem('bline_intro_seen') ||
+                window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                ov.remove();
+                return;
+            }
+
+            const skip = document.getElementById('intro-skip');
+            if (skip) skip.addEventListener('click', () => this.skip(ov));
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') this.skip(ov); });
+
+            const sym = document.getElementById('intro-sym');
+            const brand = document.getElementById('intro-brand');
+            const t = (fn, ms) => { this.timers.push(setTimeout(fn, ms)); };
+
+            t(() => { if (sym) sym.classList.add('visible'); }, 200);
+            t(() => { if (brand) brand.classList.add('visible'); }, 600);
+            t(() => { if (brand) brand.classList.add('fade-out'); }, 2400);
+            t(() => { if (sym) sym.classList.add('morph-out'); }, 2800);
+            t(() => {
+                sessionStorage.setItem('bline_intro_seen', 'true');
+                ov.classList.add('fade-out');
+            }, 3200);
+            t(() => ov.remove(), 4500);
+        },
+
+        skip(ov) {
+            this.timers.forEach(clearTimeout);
+            sessionStorage.setItem('bline_intro_seen', 'true');
+            ov.classList.add('fade-out');
+            setTimeout(() => ov.remove(), 500);
+        }
+    };
+
+    /* ========================================
+       0b. HERO SCROLL LOCK + DIVE (1:1 from desktop)
+       ======================================== */
+    const HeroDive = {
+        locked: false,
+        isDiving: false,
+
+        init() {
+            if (sessionStorage.getItem('heroUnlocked') === 'true') {
+                const wrap = document.getElementById('hero-cta-wrap');
+                if (wrap) wrap.style.display = 'none';
+                return;
+            }
+
+            this.locked = true;
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+
+            const cta = document.getElementById('hero-cta');
+            if (cta) cta.addEventListener('click', e => { e.preventDefault(); this.dive(); });
+
+            const block = e => { if (this.locked) { e.preventDefault(); e.stopPropagation(); } };
+            window.addEventListener('wheel', block, { passive: false });
+            window.addEventListener('touchmove', block, { passive: false });
+        },
+
+        dive() {
+            if (!this.locked || this.isDiving) return;
+            this.isDiving = true;
+
+            const content = document.getElementById('hero-content');
+            const bg = document.getElementById('hero-bg');
+            const overlay = document.getElementById('hero-dive-overlay');
+            const cta = document.getElementById('hero-cta');
+
+            if (cta) cta.disabled = true;
+
+            if (bg) {
+                bg.style.transition = 'transform 1.8s cubic-bezier(0.25,0.1,0.25,1), filter 1.8s cubic-bezier(0.25,0.1,0.25,1)';
+                bg.style.transform = 'scale(1.5)';
+                bg.style.filter = 'blur(20px)';
+            }
+
+            if (content) {
+                content.style.transition = 'opacity 1s ease-in-out, transform 1s ease-in-out';
+                content.style.opacity = '0';
+                content.style.transform = 'translateY(-80px) scale(0.9)';
+            }
+
+            if (overlay) overlay.classList.add('active');
+
+            setTimeout(() => {
+                const phil = document.getElementById('philosophy');
+                if (phil) phil.scrollIntoView({ behavior: 'instant' });
+
+                sessionStorage.setItem('heroUnlocked', 'true');
+                this.locked = false;
+                this.isDiving = false;
+                document.body.style.overflow = '';
+                document.documentElement.style.overflow = '';
+
+                if (overlay) { overlay.classList.remove('active'); overlay.style.transition = 'none'; overlay.style.opacity = '0'; }
+
+                const wrap = document.getElementById('hero-cta-wrap');
+                if (wrap) wrap.style.display = 'none';
+
+                if (bg) { bg.style.transition = ''; bg.style.transform = ''; bg.style.filter = ''; }
+                if (content) { content.style.transition = ''; content.style.opacity = ''; content.style.transform = ''; }
+            }, 2000);
+        }
+    };
+
+    /* ========================================
        1. SIMPLE PARTICLES (ambient background)
        ======================================== */
     const Particles = {
@@ -242,11 +357,13 @@
        INIT
        ======================================== */
     const init = () => {
+        Intro.init();
+        HeroDive.init();
         Particles.init();
         Nav.init();
         Portfolio.init();
         Roadmap.init();
-        Reveal.init(); /* Nach Portfolio/Roadmap, damit dynamische Elemente erfasst werden */
+        Reveal.init();
         Contact.init();
         Cookie.init();
     };
