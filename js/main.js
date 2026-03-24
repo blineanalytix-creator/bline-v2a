@@ -393,7 +393,7 @@
 
         config: {
             nodeCount: 350,
-            mobileNodeCount: 280,
+            mobileNodeCount: 230,
             colors: { node: {r:255,g:255,b:255}, conn: {r:255,g:255,b:255}, flash: {r:255,g:255,b:255} }
         },
 
@@ -483,10 +483,10 @@
 
         buildFormations() {
             const m = this.isMobile;
-            const ps = { alpha: 0.55, flashRate: 0.016, connDist: m ? 65 : 75, nodeR: 2.0, lineW: 0.6 };
+            const ps = { alpha: 0.55, flashRate: 0.016, connDist: m ? 58 : 75, nodeR: 2.0, lineW: 0.6 };
             return [
                 /* 0 */ { gen: 'genOrigin',      alpha: 0.0, flashRate: 0, connDist: 0, nodeR: 0.8, lineW: 0.2 },
-                /* 1 */ { gen: 'genIcosahedron',  alpha: 0.50, flashRate: 0.016, connDist: m ? 70 : 80, nodeR: 2.0, lineW: 0.55 },
+                /* 1 */ { gen: 'genIcosahedron',  alpha: 0.50, flashRate: 0.016, connDist: m ? 62 : 80, nodeR: 2.0, lineW: 0.55 },
                 /* 2 */ { gen: 'genCitech',       ...ps },
                 /* 3 */ { gen: 'genWegweiser',    ...ps },
                 /* 4 */ { gen: 'genJantzen',      ...ps },
