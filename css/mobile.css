@@ -250,7 +250,7 @@ h3 { font-size: 1.125rem; }
 }
 
 .portfolio-card-img {
-    height: 150px;
+    height: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -260,7 +260,7 @@ h3 { font-size: 1.125rem; }
 
 .portfolio-card-img img {
     max-height: 100%;
-    max-width: 65%;
+    max-width: 80%;
     object-fit: contain;
 }
 
