@@ -173,6 +173,10 @@ h3 { font-size: 1.125rem; }
     animation: heroFadeUp 0.8s ease-out 0.7s forwards;
 }
 
+.hero-cta:active {
+    background: var(--color-black);
+}
+
 .hero-cta:disabled { cursor: default; }
 
 .hero-cta svg { animation: bounceDown 2s ease-in-out infinite; }
@@ -301,8 +305,8 @@ h3 { font-size: 1.125rem; }
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 55% 35%;
-    transform: scale(1.2);
+    object-position: 45% 30%;
+    transform: scale(1.3);
 }
 
 .hero-bg-overlay {
@@ -317,12 +321,12 @@ h3 { font-size: 1.125rem; }
     height: 5rem;
     width: auto;
     margin: 0 auto 1.5rem;
-    filter: invert(1);
+    /* Kein invert - dunkel wie auf Desktop */
 }
 
 .hero-tagline {
     font-size: 1rem;
-    color: var(--text-white-70);
+    color: rgba(29,29,31,0.8);
     line-height: 1.8;
     margin-bottom: 2rem;
 }
