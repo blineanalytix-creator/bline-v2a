@@ -393,7 +393,7 @@
 
         config: {
             nodeCount: 350,
-            mobileNodeCount: 70,
+            mobileNodeCount: 180,
             colors: { node: {r:255,g:255,b:255}, conn: {r:255,g:255,b:255}, flash: {r:255,g:255,b:255} }
         },
 
@@ -446,10 +446,17 @@
         },
 
         resize() {
-            const dpr = this.isMobile ? Math.min(window.devicePixelRatio || 1, 1.5) : (window.devicePixelRatio || 1);
+            const dpr = this.isMobile ? 1 : (window.devicePixelRatio || 1);
             this.width = window.innerWidth;
-            if (!this._initH) this._initH = window.innerHeight;
-            this.height = this.isMobile ? this._initH : window.innerHeight;
+            /* Mobile: use visualViewport if available (iOS-safe), freeze initial height */
+            if (this.isMobile) {
+                if (!this._initH) {
+                    this._initH = (window.visualViewport ? window.visualViewport.height : window.innerHeight);
+                }
+                this.height = this._initH;
+            } else {
+                this.height = window.innerHeight;
+            }
             this.canvas.width = this.width * dpr;
             this.canvas.height = this.height * dpr;
             this.canvas.style.width = this.width + 'px';
@@ -863,9 +870,10 @@
                 this._breatheAlpha = 1.0;
             }
 
-            /* Flashes (desktop only) */
-            if (!this.isMobile && Math.random()<flashRate && this.nodes.length>0) {
-                this.flashes.push({idx:Math.floor(Math.random()*this.nodes.length), radius:60+Math.random()*50, intensity:0.3+Math.random()*0.5, age:0, maxAge:80+Math.random()*60});
+            /* Flashes */
+            if (Math.random()<flashRate && this.nodes.length>0) {
+                const r = this.isMobile ? 40+Math.random()*30 : 60+Math.random()*50;
+                this.flashes.push({idx:Math.floor(Math.random()*this.nodes.length), radius:r, intensity:0.3+Math.random()*0.5, age:0, maxAge:80+Math.random()*60});
             }
             for(let i=this.flashes.length-1;i>=0;i--) { if(++this.flashes[i].age>=this.flashes[i].maxAge) this.flashes.splice(i,1); }
             this.nodes.forEach(n=>{n.brightness=0;});
@@ -875,9 +883,9 @@
                 this.nodes.forEach(n => {const dx=n.x-o.x,dy=n.y-o.y,d=Math.sqrt(dx*dx+dy*dy); if(d<f.radius) n.brightness=Math.max(n.brightness,(1-d/f.radius)*fade*f.intensity);});
             });
 
-            /* Connections (desktop) – mit Breathe-Puls */
+            /* Connections – mit Breathe-Puls */
             const ba = this._breatheAlpha || 1.0;
-            if (!this.isMobile && connDist > 0) {
+            if (connDist > 0) {
                 const cd2=connDist*connDist;
                 this.ctx.lineWidth=lineW;
                 for(let i=0;i<this.nodes.length;i++){const a=this.nodes[i]; for(let j=i+1;j<this.nodes.length;j++){const b=this.nodes[j],dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy; if(d2>=cd2) continue; const d=Math.sqrt(d2),fade=1-d/connDist,la=(alpha*0.4+Math.max(a.brightness,b.brightness)*0.5)*fade*ba; this.ctx.beginPath();this.ctx.moveTo(a.x,a.y);this.ctx.lineTo(b.x,b.y);this.ctx.strokeStyle=`rgba(${c.conn.r},${c.conn.g},${c.conn.b},${la})`;this.ctx.stroke();}}
@@ -886,12 +894,12 @@
             /* Nodes */
             this.nodes.forEach(n => {
                 const emitFade = n._emitFade !== undefined ? n._emitFade : 1.0;
-                const na = (this.isMobile ? alpha : alpha+n.brightness*0.6) * emitFade;
-                const r = this.isMobile ? nodeR : nodeR+n.brightness*1.5;
+                const na = (alpha + n.brightness * 0.6) * emitFade;
+                const r = nodeR + n.brightness * 1.5;
                 this.ctx.beginPath(); this.ctx.arc(n.x,n.y,r,0,Math.PI*2);
                 this.ctx.fillStyle=`rgba(${c.node.r},${c.node.g},${c.node.b},${na})`;
                 this.ctx.fill();
-                if(!this.isMobile && n.brightness>0.2){this.ctx.beginPath();this.ctx.arc(n.x,n.y,r*3.5,0,Math.PI*2);this.ctx.fillStyle=`rgba(${c.flash.r},${c.flash.g},${c.flash.b},${n.brightness*0.1*emitFade})`;this.ctx.fill();}
+                if(n.brightness>0.2){this.ctx.beginPath();this.ctx.arc(n.x,n.y,r*3.5,0,Math.PI*2);this.ctx.fillStyle=`rgba(${c.flash.r},${c.flash.g},${c.flash.b},${n.brightness*0.1*emitFade})`;this.ctx.fill();}
                 n._emitFade = undefined; /* Reset für nächsten Frame */
             });
 
