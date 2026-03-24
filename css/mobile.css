@@ -307,7 +307,7 @@ h3 { font-size: 1.125rem; }
 .hero-bg-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 40%, rgba(15,15,15,0.8) 85%, var(--bg-dark-1) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 35%, rgba(0,0,0,0.15) 50%, rgba(15,15,15,0.7) 80%, var(--bg-dark-1) 100%);
 }
 
 .hero-content { max-width: 400px; position: relative; z-index: 1; }
